@@ -1,0 +1,29 @@
+class Solution(object):
+    def search(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        left = 0
+        right = len(nums) - 1
+
+        while left != right:
+            mid = (left + right) // 2
+            if target < nums[mid]:
+                right = mid - 1
+            elif target > nums[mid]:
+                left = mid + 1
+            else:
+                return mid
+            
+        
+        if nums[left] == target:
+            return left
+        
+        return -1
+        
+cl = Solution()
+print(cl.search([-1,0,3,5,9,12], 9))
+
+
